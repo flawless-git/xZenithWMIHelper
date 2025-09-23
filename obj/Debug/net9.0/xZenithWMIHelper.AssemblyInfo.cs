@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("xZenithWMIHelper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+505d8b75004c98e6d1bdf0a08175128e3ad7f843")]
 [assembly: System.Reflection.AssemblyProductAttribute("xZenithWMIHelper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("xZenithWMIHelper")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
