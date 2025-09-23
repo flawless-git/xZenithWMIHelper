@@ -1,3 +1,0 @@
-[23/09/2025 16:33:39] WMI Helper application started
-[23/09/2025 16:33:39] Failed to start WMI event watcher: Invalid class 
-[23/09/2025 16:33:39] Application running in background. Create a file named 'stop.txt' in the application directory to stop.
