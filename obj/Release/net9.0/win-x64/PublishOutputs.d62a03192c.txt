@@ -1,0 +1,2 @@
+C:\Users\Flawless\Documents\DesktopApps\dotnet\xZenithWMIHelper\bin\Release\net9.0\win-x64\publish\xZenithWMIHelper.pdb
+C:\Users\Flawless\Documents\DesktopApps\dotnet\xZenithWMIHelper\bin\Release\net9.0\win-x64\publish\xZenithWMIHelper.exe

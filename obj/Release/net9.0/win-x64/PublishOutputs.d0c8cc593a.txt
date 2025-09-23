@@ -1,0 +1,2 @@
+C:\Users\MyPC PRO\Documents\DesktopApps\Tauri\xZenithWMIHelper\bin\Release\net9.0\win-x64\publish\xZenithWMIHelper.pdb
+C:\Users\MyPC PRO\Documents\DesktopApps\Tauri\xZenithWMIHelper\bin\Release\net9.0\win-x64\publish\xZenithWMIHelper.exe
