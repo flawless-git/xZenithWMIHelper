@@ -4,11 +4,21 @@ using System.Management;
 using System.Text.Json;
 using System.Threading;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace xZenithWMIHelper
 {
     public class xZenithWMIHelper
     {
+        // P/Invoke untuk GetKeyState
+        [DllImport("user32.dll")]
+        public static extern short GetKeyState(int nVirtKey);
+        private const int VK_CAPITAL = 0x14; // Caps Lock
+        private const int VK_NUMLOCK = 0x90; // Num Lock
+
+        // Variabel untuk melacak status sebelumnya
+        private static bool? lastCapsLockStatus = null;
+        private static bool? lastNumLockStatus = null;
         private static ManualResetEvent _exitEvent = new ManualResetEvent(false);
         private static string logFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "xZenithWMIHelper.log");
 
@@ -33,6 +43,11 @@ namespace xZenithWMIHelper
             // Start the WMI event listener
             WmiEventListener.StartWmiEventListener();
             
+            // Start the key status monitor in a separate thread
+            Thread keyMonitorThread = new Thread(MonitorKeyStatus);
+            keyMonitorThread.IsBackground = true;
+            keyMonitorThread.Start();
+            
             LogToFile("Application running in background. Create a file named 'stop.txt' in the application directory to stop.");
             
             // Wait for exit signal
@@ -50,6 +65,67 @@ namespace xZenithWMIHelper
             } catch {}
             
             LogToFile("WMI Helper application stopped");
+        }
+        
+        private static void MonitorKeyStatus()
+        {
+            LogToFile("Key status monitor started");
+            
+            // Inisialisasi status awal tanpa membuat record
+            lastCapsLockStatus = (GetKeyState(VK_CAPITAL) & 1) != 0;
+            lastNumLockStatus = (GetKeyState(VK_NUMLOCK) & 1) != 0;
+            
+            // Loop utama berjalan sampai aplikasi dihentikan
+            while (!_exitEvent.WaitOne(0))
+            {
+                try
+                {
+                    // Periksa status tombol saat ini
+                    bool isCapsLockOn = (GetKeyState(VK_CAPITAL) & 1) != 0;
+                    bool isNumLockOn = (GetKeyState(VK_NUMLOCK) & 1) != 0;
+
+                    // Cek apakah ada perubahan status dibandingkan dengan yang terakhir dicatat
+                    if (isCapsLockOn != lastCapsLockStatus || isNumLockOn != lastNumLockStatus)
+                    {
+                        // Jika ada perubahan, catat ke file log
+                        LogKeyStatusToTauri(isCapsLockOn, isNumLockOn);
+
+                        // Perbarui status terakhir yang diketahui
+                        lastCapsLockStatus = isCapsLockOn;
+                        lastNumLockStatus = isNumLockOn;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LogToFile($"Error in key status monitor: {ex.Message}");
+                }
+
+                // Jeda sebentar untuk efisiensi CPU
+                Thread.Sleep(100);
+            }
+            
+            LogToFile("Key status monitor stopped");
+        }
+        
+        private static void LogKeyStatusToTauri(bool capsStatus, bool numStatus)
+        {
+            try
+            {
+                var timestamp = DateTime.Now;
+                var keyStatusEvent = new { 
+                    type = "KEY_STATUS", 
+                    capsLock = capsStatus ? "true" : "false",
+                    numLock = numStatus ? "true" : "false",
+                    details = $"Key status changed at {timestamp}"
+                };
+                
+                WmiEventListener.SendResponseToTauri(keyStatusEvent);
+                LogToFile($"Key status logged: CapsLock={capsStatus}, NumLock={numStatus}");
+            }
+            catch (Exception ex)
+            {
+                LogToFile($"Failed to log key status: {ex.Message}");
+            }
         }
         
         private static void LogToFile(string message)
@@ -148,7 +224,7 @@ namespace xZenithWMIHelper
             }
         }
 
-        private static void SendResponseToTauri(object data)
+        public static void SendResponseToTauri(object data)
         {
             try
             {

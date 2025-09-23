@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net9.0": {
-      "Microsoft.NET.ILLink.Tasks/9.0.8": {
+      "Microsoft.NET.ILLink.Tasks/9.0.9": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.ILLink.Tasks.props": {}
@@ -279,7 +279,7 @@
       }
     },
     "net9.0/win-x64": {
-      "Microsoft.NET.ILLink.Tasks/9.0.8": {
+      "Microsoft.NET.ILLink.Tasks/9.0.9": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.ILLink.Tasks.props": {}
@@ -680,10 +680,10 @@
     }
   },
   "libraries": {
-    "Microsoft.NET.ILLink.Tasks/9.0.8": {
-      "sha512": "rd1CbIsMtVPtZNTIVD6Xydue//klYOOQIDpRgu3BHtv17AlpRs74/6QFbcYgMm/jL+naVU2T3OFLxVSLV5lQLQ==",
+    "Microsoft.NET.ILLink.Tasks/9.0.9": {
+      "sha512": "cHi1os/s6aobEgNkbOh/jW+ru//rHuedvj4PmTh2mMY7et/mJjqphBeXeKCesDvMd0+E2JyX9EPZZC4VRKslXg==",
       "type": "package",
-      "path": "microsoft.net.illink.tasks/9.0.8",
+      "path": "microsoft.net.illink.tasks/9.0.9",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -697,7 +697,7 @@
         "build/Microsoft.NET.ILLink.Analyzers.props",
         "build/Microsoft.NET.ILLink.Tasks.props",
         "build/Microsoft.NET.ILLink.targets",
-        "microsoft.net.illink.tasks.9.0.8.nupkg.sha512",
+        "microsoft.net.illink.tasks.9.0.9.nupkg.sha512",
         "microsoft.net.illink.tasks.nuspec",
         "tools/net472/ILLink.Tasks.dll",
         "tools/net472/ILLink.Tasks.dll.config",
@@ -2149,7 +2149,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "Microsoft.NET.ILLink.Tasks >= 9.0.8",
+      "Microsoft.NET.ILLink.Tasks >= 9.0.9",
       "Newtonsoft.Json >= 13.0.4",
       "System.IO >= 4.3.0",
       "System.Linq >= 4.3.0",
@@ -2159,19 +2159,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MyPC PRO\\.nuget\\packages\\": {}
+    "C:\\Users\\Flawless\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MyPC PRO\\Documents\\DesktopApps\\Tauri\\xZenithWMIHelper\\xZenithWMIHelper.csproj",
+      "projectUniqueName": "C:\\Users\\Flawless\\Documents\\DesktopApps\\dotnet\\xZenithWMIHelper\\xZenithWMIHelper.csproj",
       "projectName": "xZenithWMIHelper",
-      "projectPath": "C:\\Users\\MyPC PRO\\Documents\\DesktopApps\\Tauri\\xZenithWMIHelper\\xZenithWMIHelper.csproj",
-      "packagesPath": "C:\\Users\\MyPC PRO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MyPC PRO\\Documents\\DesktopApps\\Tauri\\xZenithWMIHelper\\obj\\",
+      "projectPath": "C:\\Users\\Flawless\\Documents\\DesktopApps\\dotnet\\xZenithWMIHelper\\xZenithWMIHelper.csproj",
+      "packagesPath": "C:\\Users\\Flawless\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Flawless\\Documents\\DesktopApps\\dotnet\\xZenithWMIHelper\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\MyPC PRO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Flawless\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2179,6 +2184,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2206,7 +2212,7 @@
           "Microsoft.NET.ILLink.Tasks": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[9.0.8, )",
+            "version": "[9.0.9, )",
             "autoReferenced": true
           },
           "Newtonsoft.Json": {
@@ -2248,15 +2254,15 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-            "version": "[9.0.8, 9.0.8]"
+            "version": "[9.0.9, 9.0.9]"
           },
           {
             "name": "Microsoft.NETCore.App.Runtime.win-x64",
-            "version": "[9.0.8, 9.0.8]"
+            "version": "[9.0.9, 9.0.9]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-            "version": "[9.0.8, 9.0.8]"
+            "version": "[9.0.9, 9.0.9]"
           }
         ],
         "frameworkReferences": {
@@ -2264,7 +2270,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

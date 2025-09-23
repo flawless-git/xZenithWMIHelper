@@ -607,3 +607,4 @@ C:\Users\MyPC PRO\Documents\DesktopApps\Tauri\xZenithWMIHelper\obj\Release\net9.
 C:\Users\MyPC PRO\Documents\DesktopApps\Tauri\xZenithWMIHelper\obj\Release\net9.0\win-x64\xZenithWMIHelper.pdb
 C:\Users\MyPC PRO\Documents\DesktopApps\Tauri\xZenithWMIHelper\obj\Release\net9.0\win-x64\xZenithWMIHelper.genruntimeconfig.cache
 C:\Users\MyPC PRO\Documents\DesktopApps\Tauri\xZenithWMIHelper\obj\Release\net9.0\win-x64\ref\xZenithWMIHelper.dll
+C:\Users\Flawless\Documents\DesktopApps\dotnet\xZenithWMIHelper\obj\Release\net9.0\win-x64\xZenithWMIHelper.sourcelink.json
