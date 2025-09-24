@@ -72,8 +72,8 @@ namespace xZenithWMIHelper
             LogToFile("Key status monitor started");
             
             // Inisialisasi status awal tanpa membuat record
-            lastCapsLockStatus = (GetKeyState(VK_CAPITAL) & 1) != 0;
-            lastNumLockStatus = (GetKeyState(VK_NUMLOCK) & 1) != 0;
+            // lastCapsLockStatus = (GetKeyState(VK_CAPITAL) & 1) != 0;
+            // lastNumLockStatus = (GetKeyState(VK_NUMLOCK) & 1) != 0;
             
             // Loop utama berjalan sampai aplikasi dihentikan
             while (!_exitEvent.WaitOne(0))
